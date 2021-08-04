@@ -4,18 +4,21 @@ import java.util.HashMap;
 
 public class Statistic {
 
-    private final HashMap <String, Integer> statistic = new HashMap<String, Integer>();
+    private final HashMap <String, Integer> statistic = new HashMap<>();
 
     public void add (String [] words) {
 
         for (String word: words) {
 
-            if (statistic.containsKey(word)){
+            if (!word.equals("")) {
 
-                Integer countWords = statistic.get(word) + 1;
-                statistic.put(word, countWords);
-            } else {
-                statistic.put(word, 1);
+                if (statistic.containsKey(word)){
+
+                    Integer countWords = statistic.get(word) + 1;
+                    statistic.put(word, countWords);
+                } else {
+                    statistic.put(word, 1);
+                }
             }
         }
     }
